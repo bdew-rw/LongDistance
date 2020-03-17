@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>Long Distance</name>
+	<author>bdew</author>
+	<packageId>BDew.LongDistance</packageId>
+	<supportedVersions>
+	  <li>1.1</li>
+	</supportedVersions>
+	<modDependencies>
+	  <li>
+	    <packageId>UnlimitedHugs.HugsLib</packageId>
+	    <displayName>HugsLib</displayName>
+	    <steamWorkshopUrl>steam://steamcommunity.com/workshop/filedetails/?id=818773962</steamWorkshopUrl>
+	  </li>
+	</modDependencies>
+	<loadAfter>
+      <li>UnlimitedHugs.HugsLib</li>
+    </loadAfter>
+	<url>https://github.com/bdew-rw/LongDistance</url>
+	<description>
+This mod allows colonists that have relationships (both romantic and famillial) with pawns from other factions to invite them to join the colony.
+
+You will need a working comms console to be able to contact the other pawn. Select your colonist and right click the console to initiate the call.
+
+The invited pawn might decide to join or reject the offer (success chance depends on opinion, social skill of the inviter, and faction standings).
+
+If the invited pawn decides to join it might cause faction relations to change, for better or worse.
+
+On the other hand a rejection might cause a breakup (romantic relationships only).
+
+You can also use it to remotely break up in case you're not interested in them joining.
+
+Requires HugsLib - https://steamcommunity.com/workshop/filedetails/?id=818773962
+	</description>
+</ModMetaData>

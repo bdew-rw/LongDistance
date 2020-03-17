@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <JobDef>
+        <defName>bdew_longdistance_invite</defName>
+        <driverClass>LongDistance.JobDriver_Invite</driverClass>
+        <reportString>Calling TargetA to invite.</reportString>
+        <suspendable>false</suspendable>
+    </JobDef>
+    
+    <JobDef>
+        <defName>bdew_longdistance_breakup</defName>
+        <driverClass>LongDistance.JobDriver_Breakup</driverClass>
+        <reportString>Calling TargetA to break up.</reportString>
+        <suspendable>false</suspendable>
+    </JobDef>
+</Defs>

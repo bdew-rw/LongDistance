@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+    <LongDistance.Invite>Invite {PAWN_labelShort} ({REL}, {FACTION_name})</LongDistance.Invite>
+    <LongDistance.Breakup>Break up with {PAWN_labelShort} ({REL}, {FACTION_name})</LongDistance.Breakup>
+
+    <LongDistance.InviteAccepted.Title>Invitation Accepted</LongDistance.InviteAccepted.Title>
+    <LongDistance.InviteAccepted.Text>{PAWN_labelShort} has accepted {INVITER_labelShort}'s invitation to join {INVITER_possessive}.\n\n{PAWN_pronoun} will arrive at {COLONY} soon.</LongDistance.InviteAccepted.Text>
+    <LongDistance.InviteAccepted.FactionNeg>{FACTION} have been angered by that and relations have decreased by {CHG}.</LongDistance.InviteAccepted.FactionNeg>
+    <LongDistance.InviteAccepted.FactionPos>{FACTION} see it as an opportunity to strengthen the bond between the two communities and relations have increased by {CHG}.</LongDistance.InviteAccepted.FactionPos>
+
+    <LongDistance.InviteRejected.Title>Invitation Rejected</LongDistance.InviteRejected.Title>
+    <LongDistance.InviteRejected.Text>{PAWN_labelShort} has rejected {INVITER_labelShort}'s invitation to join {INVITER_possessive} at {COLONY}.</LongDistance.InviteRejected.Text>
+    <LongDistance.InviteRejected.Breakup>{INVITER_pronoun} didn't take that well and they broke up.</LongDistance.InviteRejected.Breakup>
+
+    <LongDistance.InviteJoined.Title>{PAWN_labelShort} Joins</LongDistance.InviteJoined.Title>
+    <LongDistance.InviteJoined.Text>{PAWN_labelShort} has arrived at {COLONY} to join {INVITER_labelShort} and became a member of the colony.</LongDistance.InviteJoined.Text>
+
+    <LongDistance.Breakup.Text>{PAWN_labelShort} has let {LOVER_labelShort} know {PAWN_pronoun} no longer wants to continue their relationship, and they are no longer together.</LongDistance.Breakup.Text>
+
+    <LongDistance.StandingChage>{PAWN_labelShort} joining colony</LongDistance.StandingChage>
+
+    <LongDistance.Enroute.Title>Colonists Enroute</LongDistance.Enroute.Title>
+    <LongDistance.Enroute.Text>The following collonist(s) are enroute to join:\n\n{0}</LongDistance.Enroute.Text>
+    <LongDistance.Enroute.Row>{PAWN_labelShort} ({INVITER_labelShort}'s {REL}) - {TIME}</LongDistance.Enroute.Row>
+
+    <LongDistance.Settings.MinDaysToJoin.Name>Min days to join</LongDistance.Settings.MinDaysToJoin.Name>
+    <LongDistance.Settings.MinDaysToJoin.Desc>Minimum time a pawn takes to travel to the colony after deciding to join (in days)</LongDistance.Settings.MinDaysToJoin.Desc>
+    <LongDistance.Settings.MaxDaysToJoin.Name>Max days to join</LongDistance.Settings.MaxDaysToJoin.Name>
+    <LongDistance.Settings.MaxDaysToJoin.Desc>Maximum time a pawn takes to travel to the colony after deciding to join (in days)</LongDistance.Settings.MaxDaysToJoin.Desc>
+
+    <LongDistance.Settings.JoinBaseChance.Name>Base invite success chance</LongDistance.Settings.JoinBaseChance.Name>
+    <LongDistance.Settings.JoinBaseChance.Desc>Base success chance of inviting</LongDistance.Settings.JoinBaseChance.Desc>
+
+    <LongDistance.Settings.JoinOpinionFactor.Name>Success chance opinion factor</LongDistance.Settings.JoinOpinionFactor.Name>
+    <LongDistance.Settings.JoinOpinionFactor.Desc>How much opinion affects the success chance of inviting</LongDistance.Settings.JoinOpinionFactor.Desc>
+    
+    <LongDistance.Settings.JoinSkillFactor.Name>Success chance skill factor</LongDistance.Settings.JoinSkillFactor.Name>
+    <LongDistance.Settings.JoinSkillFactor.Desc>How much social skill affects the success chance of inviting</LongDistance.Settings.JoinSkillFactor.Desc>
+    
+    <LongDistance.Settings.JoinFactionFactor.Name>Success chance faction relations factor</LongDistance.Settings.JoinFactionFactor.Name>
+    <LongDistance.Settings.JoinFactionFactor.Desc>How much faction relations affect the success chance of inviting</LongDistance.Settings.JoinFactionFactor.Desc>
+    
+    <LongDistance.Settings.BreakupBaseChance.Name>Base breakup chance</LongDistance.Settings.BreakupBaseChance.Name>
+    <LongDistance.Settings.BreakupBaseChance.Desc>Base chance of a romantic relationship breaking after a rejected invitation</LongDistance.Settings.BreakupBaseChance.Desc>
+
+    <LongDistance.Settings.BreakupOpinionFactor.Name>Breakup chance opinion factor</LongDistance.Settings.BreakupOpinionFactor.Name>
+    <LongDistance.Settings.BreakupOpinionFactor.Desc>How much opinion affects the breakup chance after a rejected invitation</LongDistance.Settings.BreakupOpinionFactor.Desc>
+
+    <LongDistance.Settings.PositiveRelationTreshold.Name>Positive relations treshold</LongDistance.Settings.PositiveRelationTreshold.Name>
+    <LongDistance.Settings.PositiveRelationTreshold.Desc>Factions above this relations level will always react positively to their members deciding to join</LongDistance.Settings.PositiveRelationTreshold.Desc>
+
+    <LongDistance.Settings.NegativeRelationTreshold.Name>Negative relations treshold</LongDistance.Settings.NegativeRelationTreshold.Name>
+    <LongDistance.Settings.NegativeRelationTreshold.Desc>Factions below this relations level will always react negatively to their members deciding to join</LongDistance.Settings.NegativeRelationTreshold.Desc>
+</LanguageData>

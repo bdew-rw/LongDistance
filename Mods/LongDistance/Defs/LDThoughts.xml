@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <ThoughtDef>
+        <defName>bdew_longdistance_inv_rejected</defName>
+        <thoughtClass>Thought_MemorySocial</thoughtClass>
+        <durationDays>20</durationDays>
+        <stackLimit>300</stackLimit>
+        <stackLimitForSameOtherPawn>5</stackLimitForSameOtherPawn>
+        <stackedEffectMultiplier>0.9</stackedEffectMultiplier>
+        <stages>
+            <li>
+                <label>rejected my invitation</label>
+                <baseOpinionOffset>-10</baseOpinionOffset>
+            </li>
+        </stages>
+        <thoughtToMake>bdew_longdistance_inv_rejected_mood</thoughtToMake>
+    </ThoughtDef>
+
+    <ThoughtDef>
+        <defName>bdew_longdistance_inv_rejected_mood</defName>
+        <durationDays>10</durationDays>
+        <stackLimit>5</stackLimit>
+        <stackedEffectMultiplier>0.9</stackedEffectMultiplier>
+        <stages>
+            <li>
+                <label>my invitation was rejected by {0}</label>
+                <description>I wanted us to be together, but I was just shot down.</description>
+                <baseMoodEffect>-5</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <ThoughtDef>
+        <defName>bdew_longdistance_inv_rejected_target</defName>
+        <thoughtClass>Thought_MemorySocial</thoughtClass>
+        <durationDays>20</durationDays>
+        <stackLimit>300</stackLimit>
+        <stackLimitForSameOtherPawn>5</stackLimitForSameOtherPawn>
+        <stackedEffectMultiplier>0.9</stackedEffectMultiplier>
+        <stages>
+            <li>
+                <label>I rejected their invitation</label>
+                <baseOpinionOffset>-5</baseOpinionOffset>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <ThoughtDef>
+        <defName>bdew_longdistance_inv_accepted</defName>
+        <thoughtClass>Thought_MemorySocial</thoughtClass>
+        <durationDays>20</durationDays>
+        <stackLimit>300</stackLimit>
+        <stackLimitForSameOtherPawn>5</stackLimitForSameOtherPawn>
+        <stackedEffectMultiplier>0.9</stackedEffectMultiplier>
+        <stages>
+            <li>
+                <label>accepted my invitation</label>
+                <baseOpinionOffset>20</baseOpinionOffset>
+            </li>
+        </stages>
+        <thoughtToMake>bdew_longdistance_inv_accepted_mood</thoughtToMake>
+    </ThoughtDef>
+
+    <ThoughtDef>
+        <defName>bdew_longdistance_inv_accepted_target</defName>
+        <thoughtClass>Thought_MemorySocial</thoughtClass>
+        <durationDays>20</durationDays>
+        <stackLimit>300</stackLimit>
+        <stackLimitForSameOtherPawn>5</stackLimitForSameOtherPawn>
+        <stackedEffectMultiplier>0.9</stackedEffectMultiplier>
+        <stages>
+            <li>
+                <label>invited me to join</label>
+                <baseOpinionOffset>20</baseOpinionOffset>
+            </li>
+        </stages>
+        <thoughtToMake>bdew_longdistance_inv_accepted_mood</thoughtToMake>
+    </ThoughtDef>
+
+    <ThoughtDef>
+        <defName>bdew_longdistance_inv_accepted_mood</defName>
+        <durationDays>10</durationDays>
+        <stackLimit>5</stackLimit>
+        <stackedEffectMultiplier>0.9</stackedEffectMultiplier>
+        <stages>
+            <li>
+                <label>my invitation was accepted by {0}</label>
+                <description>We can be together now.</description>
+                <baseMoodEffect>5</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+</Defs>
