@@ -17,6 +17,8 @@ namespace LongDistance
             public Map destination;
             public int ticks;
 
+            public ArrivalEntry() { }
+
             public ArrivalEntry(Pawn pawn, Pawn inviter, Map destination, int ticks)
             {
                 this.pawn = pawn;
