@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <LongDistance.Invite>邀请 {PAWN_labelShort} ({REL}, {FACTION_name})</LongDistance.Invite>
+  <LongDistance.Breakup>分手与 {PAWN_labelShort} ({REL}, {FACTION_name})</LongDistance.Breakup>
+
+  <LongDistance.InviteAccepted.Title>接受邀请</LongDistance.InviteAccepted.Title>
+  <LongDistance.InviteAccepted.Text>{PAWN_labelShort} 已接受 {INVITER_labelShort}的加入邀请 {INVITER_possessive}.\n\n{PAWN_pronoun} 很快会到达 {COLONY} </LongDistance.InviteAccepted.Text>
+  <LongDistance.InviteAccepted.FactionNeg>{FACTION} 对此感到愤怒，关系也因 {CHG} 而下降.</LongDistance.InviteAccepted.FactionNeg>
+  <LongDistance.InviteAccepted.FactionPos>{FACTION} 认为这是增加派系关系的机会，关系也因 {CHG} 而改善.</LongDistance.InviteAccepted.FactionPos>
+
+  <LongDistance.InviteRejected.Title>邀请被拒绝</LongDistance.InviteRejected.Title>
+  <LongDistance.InviteRejected.Text> {PAWN_labelShort} 拒绝了 {INVITER_labelShort}  {INVITER_possessive} 在 {COLONY} 加入殖民地的邀请.</LongDistance.InviteRejected.Text>
+  <LongDistance.InviteRejected.Breakup> {INVITER_pronoun} 他们关系变得很差并且分手了.</LongDistance.InviteRejected.Breakup>
+
+  <LongDistance.InviteJoined.Title>{PAWN_labelShort} 加入</LongDistance.InviteJoined.Title>
+  <LongDistance.InviteJoined.Text>{PAWN_labelShort} 已经到达 {COLONY} 加入 {INVITER_labelShort} 成为了殖民地的成员.</LongDistance.InviteJoined.Text>
+
+  <LongDistance.Breakup.Text>{PAWN_labelShort} 让 {LOVER_labelShort} 知道 {PAWN_pronoun} 不想继续他们的关系，他们将形同陌路.</LongDistance.Breakup.Text>
+
+  <LongDistance.StandingChage>{PAWN_labelShort} 加入殖民地</LongDistance.StandingChage>
+
+  <LongDistance.Enroute.Title>加入途中</LongDistance.Enroute.Title>
+  <LongDistance.Enroute.Text>下列人 (们)  正在加入途中:\n\n{0}</LongDistance.Enroute.Text>
+  <LongDistance.Enroute.Row>{PAWN_labelShort} ({INVITER_labelShort}'s {REL}) - {TIME}</LongDistance.Enroute.Row>
+
+  <LongDistance.Settings.MinDaysToJoin.Name>加入的最少天数</LongDistance.Settings.MinDaysToJoin.Name>
+  <LongDistance.Settings.MinDaysToJoin.Desc>当小人决定加入后前往殖民地的最短时间（天）</LongDistance.Settings.MinDaysToJoin.Desc>
+  <LongDistance.Settings.MaxDaysToJoin.Name>最多加入天数</LongDistance.Settings.MaxDaysToJoin.Name>
+  <LongDistance.Settings.MaxDaysToJoin.Desc>当小人决定加入后前往殖民地的最长时间（天）</LongDistance.Settings.MaxDaysToJoin.Desc>
+
+  <LongDistance.Settings.JoinBaseChance.Name>殖民地成功邀请的机会</LongDistance.Settings.JoinBaseChance.Name>
+  <LongDistance.Settings.JoinBaseChance.Desc>殖民地可能成功邀请的机会</LongDistance.Settings.JoinBaseChance.Desc>
+
+  <LongDistance.Settings.JoinOpinionFactor.Name>成功邀请的看法因素</LongDistance.Settings.JoinOpinionFactor.Name>
+  <LongDistance.Settings.JoinOpinionFactor.Desc>看法对邀请成功率的机会影响有多大</LongDistance.Settings.JoinOpinionFactor.Desc>
+
+  <LongDistance.Settings.JoinSkillFactor.Name>成功邀请的技能因素</LongDistance.Settings.JoinSkillFactor.Name>
+  <LongDistance.Settings.JoinSkillFactor.Desc>社交技巧对邀请成功率的影响有多大</LongDistance.Settings.JoinSkillFactor.Desc>
+
+  <LongDistance.Settings.JoinFactionFactor.Name>成功机会派系关系因素</LongDistance.Settings.JoinFactionFactor.Name>
+  <LongDistance.Settings.JoinFactionFactor.Desc>派系关系对邀请成功率的影响</LongDistance.Settings.JoinFactionFactor.Desc>
+
+  <LongDistance.Settings.BreakupBaseChance.Name>分手几率</LongDistance.Settings.BreakupBaseChance.Name>
+  <LongDistance.Settings.BreakupBaseChance.Desc>一段恋情在被拒绝的邀请后破裂的几率</LongDistance.Settings.BreakupBaseChance.Desc>
+
+  <LongDistance.Settings.BreakupOpinionFactor.Name>分手几率的看法因素</LongDistance.Settings.BreakupOpinionFactor.Name>
+  <LongDistance.Settings.BreakupOpinionFactor.Desc>How much opinion affects the breakup chance after a rejected invitation</LongDistance.Settings.BreakupOpinionFactor.Desc>
+
+  <LongDistance.Settings.PositiveRelationTreshold.Name>正关系阈值</LongDistance.Settings.PositiveRelationTreshold.Name>
+  <LongDistance.Settings.PositiveRelationTreshold.Desc>高于这种关系水平的派系总是对他们的成员决定加入作出正面反应</LongDistance.Settings.PositiveRelationTreshold.Desc>
+
+  <LongDistance.Settings.NegativeRelationTreshold.Name>负关系阈值</LongDistance.Settings.NegativeRelationTreshold.Name>
+  <LongDistance.Settings.NegativeRelationTreshold.Desc>低于这种关系水平的派系总是对他们的成员决定加入作出负面反应</LongDistance.Settings.NegativeRelationTreshold.Desc>
+
+</LanguageData>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <bdew_longdistance_inv_rejected.stages.0.label>拒绝了我的邀请</bdew_longdistance_inv_rejected.stages.0.label>
+
+  <bdew_longdistance_inv_rejected_mood.stages.0.label>我的邀请被 {0} 拒绝了</bdew_longdistance_inv_rejected_mood.stages.0.label>
+  <bdew_longdistance_inv_rejected_mood.stages.0.description>我希望我们能在一起，但只受到了打击。</bdew_longdistance_inv_rejected_mood.stages.0.description>
+
+  <bdew_longdistance_inv_rejected_target.stages.0.label>我拒绝了他们的邀请</bdew_longdistance_inv_rejected_target.stages.0.label>
+  <bdew_longdistance_inv_accepted.stages.0.label>接受了我的邀请</bdew_longdistance_inv_accepted.stages.0.label>
+  <bdew_longdistance_inv_accepted_target.stages.0.label>邀请我加入</bdew_longdistance_inv_accepted_target.stages.0.label>
+
+  <bdew_longdistance_inv_accepted_mood.stages.0.label>我的邀请被 {0} 接受了</bdew_longdistance_inv_accepted_mood.stages.0.label>
+  <bdew_longdistance_inv_accepted_mood.stages.0.description>现在，我们可以在一起了</bdew_longdistance_inv_accepted_mood.stages.0.description>
+
+
+</LanguageData>
