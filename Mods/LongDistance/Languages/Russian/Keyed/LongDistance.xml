@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<LongDistance.Invite>Пригласить {PAWN_labelShort} ({REL}, {FACTION_name})</LongDistance.Invite>
+	<LongDistance.Breakup>Разорвать отношения {PAWN_labelShort} ({REL}, {FACTION_name})</LongDistance.Breakup>
+
+	<LongDistance.InviteAccepted.Title>Приглашение Принято</LongDistance.InviteAccepted.Title>
+	<LongDistance.InviteAccepted.Text>{PAWN_labelShort} {PAWN_gender ? принял : приняла} приглашение {INVITER_labelShort}'s присоединиться к {INVITER_possessive}.\n\n{PAWN_pronoun} скоро прибудет в {COLONY}.</LongDistance.InviteAccepted.Text>
+	<LongDistance.InviteAccepted.FactionNeg>{FACTION} были возмущены этим, и наши отношения уменьшились на {CHG}.</LongDistance.InviteAccepted.FactionNeg>
+	<LongDistance.InviteAccepted.FactionPos>{FACTION} рассматривают это как возможность укрепить связь между двумя общинами, и наши отношения с ними увеличились {CHG}.</LongDistance.InviteAccepted.FactionPos>
+
+	<LongDistance.InviteRejected.Title>Приглашение Отклонено</LongDistance.InviteRejected.Title>
+	<LongDistance.InviteRejected.Text>{PAWN_labelShort} {PAWN_gender ? отклонил : отклонила} приглашение {INVITER_labelShort}'s invitation to join {INVITER_possessive} at {COLONY}.</LongDistance.InviteRejected.Text>
+	<LongDistance.InviteRejected.Breakup>{INVITER_pronoun} не {PAWN_gender ? принял : приняла} это хорошо, и они расстались.</LongDistance.InviteRejected.Breakup>
+
+	<LongDistance.InviteJoined.Title>{PAWN_labelShort} Присоединяется</LongDistance.InviteJoined.Title>
+	<LongDistance.InviteJoined.Text>{PAWN_labelShort} {PAWN_gender ? прибыл : прибыла} в {COLONY} что бы воссоединиться с {INVITER_labelShort} и присоединиться к колонии.</LongDistance.InviteJoined.Text>
+
+	<LongDistance.Breakup.Text>{PAWN_labelShort} {PAWN_gender ? дал : дала} понять {LOVER_labelShort} что {PAWN_pronoun} больше не хочет продолжать свои отношения, и они больше не вместе.</LongDistance.Breakup.Text>
+
+	<LongDistance.StandingChage>{PAWN_labelShort} присоединяется к колнии</LongDistance.StandingChage>
+
+	<LongDistance.Enroute.Title>Колонисты В Пути</LongDistance.Enroute.Title>
+	<LongDistance.Enroute.Text>Следующие коллонисты присоединятся к колонии по прибытию:\n\n{0}</LongDistance.Enroute.Text>
+	<LongDistance.Enroute.Row>{PAWN_labelShort} ({INVITER_labelShort}'s {REL}) - {TIME}</LongDistance.Enroute.Row>
+
+	<LongDistance.Settings.MinDaysToJoin.Name>Мин дней, чтобы присоединиться</LongDistance.Settings.MinDaysToJoin.Name>
+	<LongDistance.Settings.MinDaysToJoin.Desc>Минимальное время, необходимое пешке для перехода в колонию после принятия решения о присоединении (в днях)</LongDistance.Settings.MinDaysToJoin.Desc>
+	<LongDistance.Settings.MaxDaysToJoin.Name>Макс дней, чтобы присоединиться</LongDistance.Settings.MaxDaysToJoin.Name>
+	<LongDistance.Settings.MaxDaysToJoin.Desc>Максимальное время, за которое пешка отправляется в колонию после принятия решения о присоединении (в днях)</LongDistance.Settings.MaxDaysToJoin.Desc>
+
+	<LongDistance.Settings.JoinBaseChance.Name>Базовый шанс успеха приглашения</LongDistance.Settings.JoinBaseChance.Name>
+	<LongDistance.Settings.JoinBaseChance.Desc>Шанс успеха при приглашении</LongDistance.Settings.JoinBaseChance.Desc>
+
+	<LongDistance.Settings.JoinOpinionFactor.Name>Фактор отношений к шансу успеха</LongDistance.Settings.JoinOpinionFactor.Name>
+	<LongDistance.Settings.JoinOpinionFactor.Desc>Насколько отношения воздействуют на шанс удачного приглашения</LongDistance.Settings.JoinOpinionFactor.Desc>
+    
+	<LongDistance.Settings.JoinSkillFactor.Name>Фактор навыка общения к шансу успеха</LongDistance.Settings.JoinSkillFactor.Name>
+	<LongDistance.Settings.JoinSkillFactor.Desc>Насколько социальный навык влияет на шанс удачного приглашения</LongDistance.Settings.JoinSkillFactor.Desc>
+    
+	<LongDistance.Settings.JoinFactionFactor.Name>Фактор отношений фракций к шансу успеха</LongDistance.Settings.JoinFactionFactor.Name>
+	<LongDistance.Settings.JoinFactionFactor.Desc>Насколько отношения между фракциями влияют на вероятность успеха приглашения</LongDistance.Settings.JoinFactionFactor.Desc>
+    
+	<LongDistance.Settings.BreakupBaseChance.Name>Базовый шанс разрыва отношений</LongDistance.Settings.BreakupBaseChance.Name>
+	<LongDistance.Settings.BreakupBaseChance.Desc>Базовый шанс разрыва романтических отношений после отклоненного приглашения</LongDistance.Settings.BreakupBaseChance.Desc>
+
+	<LongDistance.Settings.BreakupOpinionFactor.Name>Фактор отношений к шансу разрыва отношений</LongDistance.Settings.BreakupOpinionFactor.Name>
+	<LongDistance.Settings.BreakupOpinionFactor.Desc>Насколько отношения влияют на шанс разрыва отношений после отклонения приглашения</LongDistance.Settings.BreakupOpinionFactor.Desc>
+
+	<LongDistance.Settings.PositiveRelationTreshold.Name>Предел положительных отношений с фракцией</LongDistance.Settings.PositiveRelationTreshold.Name>
+	<LongDistance.Settings.PositiveRelationTreshold.Desc>Фракции с отношениями выше этого уровня будут всегда позитивно реагировать на то что их члены покинут фракцию что бы воссоедениться с близкими.</LongDistance.Settings.PositiveRelationTreshold.Desc>
+
+	<LongDistance.Settings.NegativeRelationTreshold.Name>Предел отрицательных отношений с фракцией</LongDistance.Settings.NegativeRelationTreshold.Name>
+	<LongDistance.Settings.NegativeRelationTreshold.Desc>Фракции с отношениями выше этого уровня будут всегда негативно реагировать на то что их члены покинут фракцию что бы воссоедениться с близкими.</LongDistance.Settings.NegativeRelationTreshold.Desc>
+
+</LanguageData>
