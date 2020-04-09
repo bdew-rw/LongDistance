@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-    <LongDistance.Invite>Invite {PAWN_labelShort} ({REL}, {FACTION_name})</LongDistance.Invite>
-    <LongDistance.Breakup>Break up with {PAWN_labelShort} ({REL}, {FACTION_name})</LongDistance.Breakup>
+    <LongDistance.Invite>Invite {PAWN_labelShort} ({REL}, {FACTION})</LongDistance.Invite>
+    <LongDistance.Breakup>Break up with {PAWN_labelShort} ({REL}, {FACTION})</LongDistance.Breakup>
+
+    <LongDistance.Neutral>Neutral</LongDistance.Neutral>
 
     <LongDistance.InviteAccepted.Title>Invitation Accepted</LongDistance.InviteAccepted.Title>
     <LongDistance.InviteAccepted.Text>{PAWN_labelShort} has accepted {INVITER_labelShort}'s invitation to join {INVITER_possessive}.\n\n{PAWN_pronoun} will arrive at {COLONY} soon.</LongDistance.InviteAccepted.Text>

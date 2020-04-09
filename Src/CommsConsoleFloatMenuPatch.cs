@@ -3,12 +3,28 @@ using HarmonyLib;
 using RimWorld;
 using Verse;
 using Verse.AI;
+using System;
+using UnityEngine;
 
 namespace LongDistance
 {
     [HarmonyPatch(typeof(Building_CommsConsole), nameof(Building_CommsConsole.GetFloatMenuOptions))]
     public class CommsConsoleFloatMenuPatch
     {
+        private static FloatMenuOption MakeOpt(string key, Pawn pawn, PawnRelationDef rel, Building_CommsConsole console, Action action)
+        {
+            return new FloatMenuOption(
+                key.Translate(
+                    pawn.Named("PAWN"),
+                    rel.GetGenderSpecificLabel(pawn).CapitalizeFirst().Named("REL"),
+                    pawn.Faction == null ? "LongDistance.Neutral".Translate().Named("FACTION") : pawn.Faction.Name.Named("FACTION")
+                ),
+                action,
+                pawn.Faction?.def.FactionIcon,
+                pawn.Faction == null ? Color.white : pawn.Faction.Color
+            );
+        }
+
         public static void Postfix(Building_CommsConsole __instance, ref IEnumerable<FloatMenuOption> __result, Pawn myPawn)
         {
             foreach (var r in __result)
@@ -26,7 +42,10 @@ namespace LongDistance
 
             foreach (var otherPawn in toCheck)
             {
+                if (otherPawn == null) continue;
+
                 var rel = myPawn.GetMostImportantRelation(otherPawn);
+                if (rel == null) continue;
 
                 if (
                     otherPawn.IsColonistPlayerControlled ||
@@ -37,28 +56,14 @@ namespace LongDistance
                     !Utils.IsInvitableRelationship(rel)
                 ) continue;
 
-                res.Add(new FloatMenuOption(
-                    "LongDistance.Invite".Translate(
-                        otherPawn.Named("PAWN"),
-                        rel.GetGenderSpecificLabel(otherPawn).CapitalizeFirst().Named("REL"),
-                        otherPawn.Faction.Named("FACTION")
-                    ),
-                    () => myPawn.jobs.TryTakeOrderedJob(new Job(LongDistanceMod.InviteJob, otherPawn, __instance)),
-                    otherPawn.Faction.def.FactionIcon,
-                    otherPawn.Faction.Color
+                res.Add(MakeOpt("LongDistance.Invite", otherPawn, rel, __instance,
+                    () => myPawn.jobs.TryTakeOrderedJob(new Job(LongDistanceMod.InviteJob, otherPawn, __instance))
                 ));
 
                 if (Utils.IsBreakableRelationship(rel))
                 {
-                    res.Add(new FloatMenuOption(
-                        "LongDistance.Breakup".Translate(
-                            otherPawn.Named("PAWN"),
-                            rel.GetGenderSpecificLabel(otherPawn).CapitalizeFirst().Named("REL"),
-                            otherPawn.Faction.Named("FACTION")
-                        ),
-                        () => myPawn.jobs.TryTakeOrderedJob(new Job(LongDistanceMod.BreakupJob, otherPawn, __instance)),
-                        otherPawn.Faction.def.FactionIcon,
-                        otherPawn.Faction.Color
+                    res.Add(MakeOpt("LongDistance.Breakup", otherPawn, rel, __instance,
+                        () => myPawn.jobs.TryTakeOrderedJob(new Job(LongDistanceMod.BreakupJob, otherPawn, __instance))
                     ));
                 }
             }
