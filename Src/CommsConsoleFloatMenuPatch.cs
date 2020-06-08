@@ -4,6 +4,7 @@ using RimWorld;
 using Verse;
 using Verse.AI;
 using System;
+using System.Reflection;
 using UnityEngine;
 
 namespace LongDistance
@@ -11,6 +12,8 @@ namespace LongDistance
     [HarmonyPatch(typeof(Building_CommsConsole), nameof(Building_CommsConsole.GetFloatMenuOptions))]
     public class CommsConsoleFloatMenuPatch
     {
+        private static MethodInfo mGetFailureReason;
+
         private static FloatMenuOption MakeOpt(string key, Pawn pawn, PawnRelationDef rel, Building_CommsConsole console, Action action)
         {
             return new FloatMenuOption(
@@ -27,11 +30,13 @@ namespace LongDistance
 
         public static void Postfix(Building_CommsConsole __instance, ref IEnumerable<FloatMenuOption> __result, Pawn myPawn)
         {
-            foreach (var r in __result)
+            if (mGetFailureReason == null)
             {
-                if (r.action == null)
-                    return;
+                mGetFailureReason = typeof(Building_CommsConsole).GetMethod("GetFailureReason", BindingFlags.NonPublic | BindingFlags.Instance);
+                Log.Message("Grabbed GetFailureReason: " + mGetFailureReason.ToString());
             }
+
+            if (mGetFailureReason.Invoke(__instance, new object[] { myPawn }) != null) return;
 
             var res = new List<FloatMenuOption>(__result);
 
