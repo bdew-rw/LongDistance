@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+	<bdew_longdistance_inv_rejected.stages.0.label>Отклонили мое приглашение</bdew_longdistance_inv_rejected.stages.0.label>
+	<bdew_longdistance_inv_rejected_mood.stages.0.label>мое приглашение было отклонено {0}</bdew_longdistance_inv_rejected_mood.stages.0.label>
+	<bdew_longdistance_inv_rejected_mood.stages.0.description>Я хотел, чтобы мы были вместе, но меня просто сбили.</bdew_longdistance_inv_rejected_mood.stages.0.description>
+	<bdew_longdistance_inv_rejected_target.stages.0.label>Я отклонил их приглашение.</bdew_longdistance_inv_rejected_target.stages.0.label>
+
+	<bdew_longdistance_inv_accepted.stages.0.label>Приняли мое приглашение</bdew_longdistance_inv_accepted.stages.0.label>
+	<bdew_longdistance_inv_accepted_target.stages.0.label>Пригласил меня присоединиться</bdew_longdistance_inv_accepted_target.stages.0.label>
+	<bdew_longdistance_inv_accepted_mood.stages.0.label>Мое приглашение было принято {0}</bdew_longdistance_inv_accepted_mood.stages.0.label>
+	<bdew_longdistance_inv_accepted_mood.stages.0.description>Теперь мы можем быть вместе.</bdew_longdistance_inv_accepted_mood.stages.0.description>
+
+</LanguageData>
