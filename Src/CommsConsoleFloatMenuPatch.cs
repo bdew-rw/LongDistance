@@ -47,7 +47,7 @@ namespace LongDistance
 
             foreach (var otherPawn in toCheck)
             {
-                if (otherPawn == null) continue;
+                if (otherPawn == null || otherPawn.relations == null) continue;
 
                 var rel = myPawn.GetMostImportantRelation(otherPawn);
                 if (rel == null) continue;

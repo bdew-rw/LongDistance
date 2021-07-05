@@ -19,10 +19,26 @@ namespace LongDistance.Src
 
             foreach (var row in Manager.entries)
             {
+                string rel;
+                if (row.pawn.relations == null)
+                {
+                    Log.Warning($"Pawn {row.pawn.Name.ToStringFull} has null relations?");
+                    rel = "???";
+                }
+                else if (row.inviter.relations == null)
+                {
+                    Log.Warning($"Inviter {row.inviter.Name.ToStringFull} has null relations?");
+                    rel = "???";
+                }
+                else
+                {
+                    rel = row.inviter.GetMostImportantRelation(row.pawn).GetGenderSpecificLabel(row.pawn);
+                }
+
                 sb.AppendLine("LongDistance.Enroute.Row".Translate(
                     row.pawn.Named("PAWN"),
                     row.inviter.Named("INVITER"),
-                    row.inviter.GetMostImportantRelation(row.pawn).GetGenderSpecificLabel(row.pawn).Named("REL"),
+                    rel.Named("REL"),
                     ((row.ticks / 60000f).ToString("0.#") + " " + "Days".Translate()).Named("TIME")
                 ));
             }
