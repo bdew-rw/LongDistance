@@ -14,7 +14,7 @@ namespace LongDistance
                 (inviter.skills.GetSkill(SkillDefOf.Social).Level * LongDistanceMod.JoinSkillFactor);
 
             if (target.Faction != null)
-                successChance += target.Faction.RelationWith(inviter.Faction).goodwill * LongDistanceMod.JoinFactionFactor;
+                successChance += target.Faction.GoodwillWith(inviter.Faction) * LongDistanceMod.JoinFactionFactor;
 
             successChance = Mathf.Clamp01(successChance);
 
@@ -40,7 +40,7 @@ namespace LongDistance
 
                 if (oldFaction != null)
                 {
-                    int rel = oldFaction.RelationWith(inviter.Faction).goodwill;
+                    int rel = oldFaction.GoodwillWith(inviter.Faction);
                     if (rel > LongDistanceMod.PositiveRelationTreshold)
                         relChange = Rand.RangeInclusive(2, 4) * 5;
                     else if (rel < LongDistanceMod.NegativeRelationTreshold)
@@ -50,8 +50,7 @@ namespace LongDistance
                 }
 
                 if (relChange != 0)
-                    oldFaction.TryAffectGoodwillWith(inviter.Faction, relChange, true, true,
-                        "LongDistance.StandingChage".Translate(target.Named("PAWN")));
+                    oldFaction.TryAffectGoodwillWith(inviter.Faction, relChange, true, true, LongDistanceMod.RecruitedHistoryEvent, inviter);
 
                 Letters.SendAcceptedLetter(target, inviter, inviter.Map, oldFaction, relChange);
 

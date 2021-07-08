@@ -9,6 +9,7 @@ namespace LongDistance
     {
         internal static JobDef InviteJob, BreakupJob;
         internal static ThoughtDef RejectedThoughtInviter, RejectedThoughtTarget, RejectedThoughtInviterMood, AcceptedThoughtInviter, AcceptedThoughtTarget, AcceptedThoughtInviterMood;
+        internal static HistoryEventDef RecruitedHistoryEvent;
 
         internal static SettingHandle<float> MinDaysToJoin, MaxDaysToJoin, JoinBaseChance, JoinOpinionFactor, JoinSkillFactor, JoinFactionFactor, BreakupBaseChance, BreakupOpinionFactor;
         internal static SettingHandle<int> PositiveRelationTreshold, NegativeRelationTreshold;
@@ -24,6 +25,7 @@ namespace LongDistance
             AcceptedThoughtInviter = DefDatabase<ThoughtDef>.GetNamed("bdew_longdistance_inv_accepted");
             AcceptedThoughtTarget = DefDatabase<ThoughtDef>.GetNamed("bdew_longdistance_inv_accepted_target");
             AcceptedThoughtInviterMood = DefDatabase<ThoughtDef>.GetNamed("bdew_longdistance_inv_accepted_mood");
+            RecruitedHistoryEvent = DefDatabase<HistoryEventDef>.GetNamed("bdew_longdistance_recruited");
 
             MinDaysToJoin = Settings.GetHandle("MinDaysToJoin", "LongDistance.Settings.MinDaysToJoin.Name".Translate(), "LongDistance.Settings.MinDaysToJoin.Desc".Translate(), 0.5f);
             MaxDaysToJoin = Settings.GetHandle("MaxDaysToJoin", "LongDistance.Settings.MaxDaysToJoin.Name".Translate(), "LongDistance.Settings.MaxDaysToJoin.Desc".Translate(), 3f);
