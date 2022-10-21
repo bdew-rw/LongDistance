@@ -99,8 +99,10 @@ namespace LongDistance
 
             if (pawn.apparel.AnyApparelLocked)
             {
-                var req = PawnGenerationRequest.MakeDefault();
-                req.Tile = inviter.Map.Tile;
+                var req = new PawnGenerationRequest
+                {
+                    Tile = inviter.Map.Tile
+                };
                 PawnApparelGenerator.GenerateStartingApparelFor(pawn, req);
             }
 
