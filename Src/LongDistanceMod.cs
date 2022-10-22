@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using HarmonyLib;
+using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
@@ -37,11 +38,14 @@ namespace LongDistance
 
     public class LongDistanceMod : Mod
     {
-        readonly LongDistanceSettings settings;
+        public readonly LongDistanceSettings settings;
 
         public LongDistanceMod(ModContentPack content) : base(content)
         {
             this.settings = GetSettings<LongDistanceSettings>();
+            var harmony = new Harmony("BDew.LongDistance");
+            harmony.PatchAll();
+            Log.Message("Long Distance loaded");
         }
 
         public static JobDef InviteJob => DefDatabase<JobDef>.GetNamed("bdew_longdistance_invite");
