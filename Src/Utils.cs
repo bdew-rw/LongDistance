@@ -9,12 +9,12 @@ namespace LongDistance
     {
         public static void HandleInvite(Pawn inviter, Pawn target)
         {
-            float successChance = LongDistanceMod.JoinBaseChance +
-                (target.relations.OpinionOf(inviter) * LongDistanceMod.JoinOpinionFactor) +
-                (inviter.skills.GetSkill(SkillDefOf.Social).Level * LongDistanceMod.JoinSkillFactor);
+            float successChance = LongDistanceSettings.JoinBaseChance +
+                (target.relations.OpinionOf(inviter) * LongDistanceSettings.JoinOpinionFactor) +
+                (inviter.skills.GetSkill(SkillDefOf.Social).Level * LongDistanceSettings.JoinSkillFactor);
 
             if (target.Faction != null)
-                successChance += target.Faction.GoodwillWith(inviter.Faction) * LongDistanceMod.JoinFactionFactor;
+                successChance += target.Faction.GoodwillWith(inviter.Faction) * LongDistanceSettings.JoinFactionFactor;
 
             successChance = Mathf.Clamp01(successChance);
 
@@ -41,9 +41,9 @@ namespace LongDistance
                 if (oldFaction != null)
                 {
                     int rel = oldFaction.GoodwillWith(inviter.Faction);
-                    if (rel > LongDistanceMod.PositiveRelationTreshold)
+                    if (rel > LongDistanceSettings.PositiveRelationTreshold)
                         relChange = Rand.RangeInclusive(2, 4) * 5;
-                    else if (rel < LongDistanceMod.NegativeRelationTreshold)
+                    else if (rel < LongDistanceSettings.NegativeRelationTreshold)
                         relChange = -Rand.RangeInclusive(2, 4) * 5;
                     else
                         relChange = Rand.RangeInclusive(-3, 3) * 5;
@@ -55,7 +55,7 @@ namespace LongDistance
                 Letters.SendAcceptedLetter(target, inviter, inviter.Map, oldFaction, relChange);
 
                 Find.World.GetComponent<ArrivalsManager>().Schedule(target, inviter, inviter.Map,
-                    Mathf.FloorToInt(Rand.Range(LongDistanceMod.MinDaysToJoin, LongDistanceMod.MaxDaysToJoin) * GenDate.TicksPerDay));
+                    Mathf.FloorToInt(Rand.Range(LongDistanceSettings.MinDaysToJoin, LongDistanceSettings.MaxDaysToJoin) * GenDate.TicksPerDay));
             }
             else
             {
@@ -71,7 +71,7 @@ namespace LongDistance
                 {
                     if (!IsBreakableRelationship(rel)) continue;
 
-                    float breakupChance = Mathf.Clamp01(LongDistanceMod.BreakupBaseChance - inviter.relations.OpinionOf(target) * LongDistanceMod.BreakupOpinionFactor);
+                    float breakupChance = Mathf.Clamp01(LongDistanceSettings.BreakupBaseChance - inviter.relations.OpinionOf(target) * LongDistanceSettings.BreakupOpinionFactor);
 
                     brokeUp = Rand.Value < breakupChance;
 

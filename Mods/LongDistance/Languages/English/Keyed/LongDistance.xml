@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
+    <LongDistance.Name>Long Distance</LongDistance.Name>
+
     <LongDistance.Invite>Invite {PAWN_labelShort} ({REL}, {FACTION})</LongDistance.Invite>
     <LongDistance.Breakup>Break up with {PAWN_labelShort} ({REL}, {FACTION})</LongDistance.Breakup>
 

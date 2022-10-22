@@ -1,45 +1,114 @@
-﻿using HugsLib;
-using HugsLib.Settings;
-using RimWorld;
+﻿using RimWorld;
+using UnityEngine;
 using Verse;
+using Verse.Sound;
 
 namespace LongDistance
 {
-    public class LongDistanceMod : ModBase
+    public class LongDistanceSettings : ModSettings
     {
-        internal static JobDef InviteJob, BreakupJob;
-        internal static ThoughtDef RejectedThoughtInviter, RejectedThoughtTarget, RejectedThoughtInviterMood, AcceptedThoughtInviter, AcceptedThoughtTarget, AcceptedThoughtInviterMood;
-        internal static HistoryEventDef RecruitedHistoryEvent;
+        public static float MinDaysToJoin = 0.5f;
+        public static float MaxDaysToJoin = 3f;
+        public static float JoinBaseChance = 0f;
+        public static float JoinOpinionFactor = 0.01f;
+        public static float JoinSkillFactor = 0.1f;
+        public static float JoinFactionFactor = 0.002f;
+        public static float BreakupBaseChance = 0.2f;
+        public static float BreakupOpinionFactor = 0.02f;
+        public static float PositiveRelationTreshold = 50f;
+        public static float NegativeRelationTreshold = -50f;
 
-        internal static SettingHandle<float> MinDaysToJoin, MaxDaysToJoin, JoinBaseChance, JoinOpinionFactor, JoinSkillFactor, JoinFactionFactor, BreakupBaseChance, BreakupOpinionFactor;
-        internal static SettingHandle<int> PositiveRelationTreshold, NegativeRelationTreshold;
-
-        public override string ModIdentifier => "LongDistance";
-        public override void DefsLoaded()
+        public override void ExposeData()
         {
-            InviteJob = DefDatabase<JobDef>.GetNamed("bdew_longdistance_invite");
-            BreakupJob = DefDatabase<JobDef>.GetNamed("bdew_longdistance_breakup");
-            RejectedThoughtInviter = DefDatabase<ThoughtDef>.GetNamed("bdew_longdistance_inv_rejected");
-            RejectedThoughtTarget = DefDatabase<ThoughtDef>.GetNamed("bdew_longdistance_inv_rejected_target");
-            RejectedThoughtInviterMood = DefDatabase<ThoughtDef>.GetNamed("bdew_longdistance_inv_rejected_mood");
-            AcceptedThoughtInviter = DefDatabase<ThoughtDef>.GetNamed("bdew_longdistance_inv_accepted");
-            AcceptedThoughtTarget = DefDatabase<ThoughtDef>.GetNamed("bdew_longdistance_inv_accepted_target");
-            AcceptedThoughtInviterMood = DefDatabase<ThoughtDef>.GetNamed("bdew_longdistance_inv_accepted_mood");
-            RecruitedHistoryEvent = DefDatabase<HistoryEventDef>.GetNamed("bdew_longdistance_recruited");
+            Scribe_Values.Look(ref MinDaysToJoin, "MinDaysToJoin", 0.5f);
+            Scribe_Values.Look(ref MaxDaysToJoin, "MaxDaysToJoin", 3f);
+            Scribe_Values.Look(ref JoinBaseChance, "JoinBaseChance", 0f);
+            Scribe_Values.Look(ref JoinOpinionFactor, "JoinOpinionFactor", 0.01f);
+            Scribe_Values.Look(ref JoinSkillFactor, "JoinSkillFactor", 0.1f);
+            Scribe_Values.Look(ref JoinFactionFactor, "JoinFactionFactor", 0.002f);
+            Scribe_Values.Look(ref BreakupBaseChance, "BreakupBaseChance", 0.2f);
+            Scribe_Values.Look(ref BreakupOpinionFactor, "BreakupOpinionFactor", 0.02f);
+            Scribe_Values.Look(ref PositiveRelationTreshold, "PositiveRelationTreshold", 50f);
+            Scribe_Values.Look(ref NegativeRelationTreshold, "NegativeRelationTreshold", -50f);
+            base.ExposeData();
+        }
+    }
 
-            MinDaysToJoin = Settings.GetHandle("MinDaysToJoin", "LongDistance.Settings.MinDaysToJoin.Name".Translate(), "LongDistance.Settings.MinDaysToJoin.Desc".Translate(), 0.5f);
-            MaxDaysToJoin = Settings.GetHandle("MaxDaysToJoin", "LongDistance.Settings.MaxDaysToJoin.Name".Translate(), "LongDistance.Settings.MaxDaysToJoin.Desc".Translate(), 3f);
 
-            JoinBaseChance = Settings.GetHandle("JoinBaseChance", "LongDistance.Settings.JoinBaseChance.Name".Translate(), "LongDistance.Settings.JoinBaseChance.Desc".Translate(), 0f);
-            JoinOpinionFactor = Settings.GetHandle("JoinOpinionFactor", "LongDistance.Settings.JoinOpinionFactor.Name".Translate(), "LongDistance.Settings.JoinOpinionFactor.Desc".Translate(), 0.01f);
-            JoinSkillFactor = Settings.GetHandle("JoinSkillFactor", "LongDistance.Settings.JoinSkillFactor.Name".Translate(), "LongDistance.Settings.JoinSkillFactor.Desc".Translate(), 0.1f);
-            JoinFactionFactor = Settings.GetHandle("JoinFactionFactor", "LongDistance.Settings.JoinFactionFactor.Name".Translate(), "LongDistance.Settings.JoinFactionFactor.Desc".Translate(), 0.002f);
+    public class LongDistanceMod : Mod
+    {
+        readonly LongDistanceSettings settings;
 
-            BreakupBaseChance = Settings.GetHandle("BreakupBaseChance", "LongDistance.Settings.BreakupBaseChance.Name".Translate(), "LongDistance.Settings.BreakupBaseChance.Desc".Translate(), 0.2f);
-            BreakupOpinionFactor = Settings.GetHandle("BreakupOpinionFactor", "LongDistance.Settings.BreakupOpinionFactor.Name".Translate(), "LongDistance.Settings.BreakupOpinionFactor.Desc".Translate(), 0.02f);
+        public LongDistanceMod(ModContentPack content) : base(content)
+        {
+            this.settings = GetSettings<LongDistanceSettings>();
+        }
 
-            PositiveRelationTreshold = Settings.GetHandle("PositiveRelationTreshold", "LongDistance.Settings.PositiveRelationTreshold.Name".Translate(), "LongDistance.Settings.PositiveRelationTreshold.Desc".Translate(), 50);
-            NegativeRelationTreshold = Settings.GetHandle("NegativeRelationTreshold", "LongDistance.Settings.NegativeRelationTreshold.Name".Translate(), "LongDistance.Settings.NegativeRelationTreshold.Desc".Translate(), -50);
+        public static JobDef InviteJob => DefDatabase<JobDef>.GetNamed("bdew_longdistance_invite");
+        public static JobDef BreakupJob => DefDatabase<JobDef>.GetNamed("bdew_longdistance_breakup");
+        public static ThoughtDef RejectedThoughtInviter => DefDatabase<ThoughtDef>.GetNamed("bdew_longdistance_inv_rejected");
+        public static ThoughtDef RejectedThoughtTarget => DefDatabase<ThoughtDef>.GetNamed("bdew_longdistance_inv_rejected_target");
+        public static ThoughtDef RejectedThoughtInviterMood => DefDatabase<ThoughtDef>.GetNamed("bdew_longdistance_inv_rejected_mood");
+        public static ThoughtDef AcceptedThoughtInviter => DefDatabase<ThoughtDef>.GetNamed("bdew_longdistance_inv_accepted");
+        public static ThoughtDef AcceptedThoughtTarget => DefDatabase<ThoughtDef>.GetNamed("bdew_longdistance_inv_accepted_target");
+        public static ThoughtDef AcceptedThoughtInviterMood => DefDatabase<ThoughtDef>.GetNamed("bdew_longdistance_inv_accepted_mood");
+        public static HistoryEventDef RecruitedHistoryEvent => DefDatabase<HistoryEventDef>.GetNamed("bdew_longdistance_recruited");
+
+        public override string SettingsCategory()
+        {
+            return "LongDistance.Name".Translate();
+        }
+
+        public override void DoSettingsWindowContents(Rect inRect)
+        {
+            Listing_Standard listing = new Listing_Standard();
+            listing.Begin(inRect);
+
+            AddSettingsNumberLine(listing, "MinDaysToJoin", ref LongDistanceSettings.MinDaysToJoin, 0.1f, 5f, "F1");
+            AddSettingsNumberLine(listing, "MaxDaysToJoin", ref LongDistanceSettings.MaxDaysToJoin, 0.1f, 5f, "F1");
+            AddSettingsNumberLine(listing, "JoinBaseChance", ref LongDistanceSettings.JoinBaseChance, 0f, 1f, "F3");
+            AddSettingsNumberLine(listing, "JoinOpinionFactor", ref LongDistanceSettings.JoinOpinionFactor, 0f, 1f, "F3");
+            AddSettingsNumberLine(listing, "JoinSkillFactor", ref LongDistanceSettings.JoinSkillFactor, 0f, 1f, "F3");
+            AddSettingsNumberLine(listing, "JoinFactionFactor", ref LongDistanceSettings.JoinFactionFactor, 0f, 1f, "F3");
+            AddSettingsNumberLine(listing, "BreakupBaseChance", ref LongDistanceSettings.BreakupBaseChance, 0f, 1f, "F3");
+            AddSettingsNumberLine(listing, "BreakupOpinionFactor", ref LongDistanceSettings.BreakupOpinionFactor, 0f, 1f, "F3");
+            AddSettingsNumberLine(listing, "PositiveRelationTreshold", ref LongDistanceSettings.PositiveRelationTreshold, -100f, 100f, "N0");
+            AddSettingsNumberLine(listing, "NegativeRelationTreshold", ref LongDistanceSettings.NegativeRelationTreshold, -100f, 100f, "N0");
+
+            listing.End();
+
+            base.DoSettingsWindowContents(inRect);
+        }
+
+        private static void AddSettingsNumberLine(Listing_Standard listing, string name, ref float val, float min, float max, string fmt)
+        {
+            var rect = listing.GetRect(30f);
+
+            var rectLabel = rect.LeftPart(0.5f).Rounded();
+            var rectRight = rect.RightPart(0.5f).Rounded();
+            var rectField = rectRight.LeftPart(0.25f).Rounded();
+            var rectSlider = rectRight.RightPart(0.7f).Rounded();
+
+            Text.Anchor = TextAnchor.MiddleLeft;
+
+            TooltipHandler.TipRegion(rect, $"LongDistance.Settings.{name}.Desc".Translate());
+
+            Widgets.Label(rectLabel, $"LongDistance.Settings.{name}.Name".Translate());
+
+            string buffer = val.ToString(fmt);
+            Widgets.TextFieldNumeric(rectField, ref val, ref buffer, min, max);
+
+            Text.Anchor = TextAnchor.UpperLeft;
+
+            float num = Widgets.HorizontalSlider(rectSlider, val, min, max, middleAlignment: true);
+
+            if (num != val)
+            {
+                SoundDefOf.DragSlider.PlayOneShotOnCamera();
+                val = num;
+            }
+
+            listing.Gap(2f);
         }
     }
 }
