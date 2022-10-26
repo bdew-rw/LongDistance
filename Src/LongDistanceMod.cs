@@ -48,16 +48,6 @@ namespace LongDistance
             Log.Message("Long Distance loaded");
         }
 
-        public static JobDef InviteJob => DefDatabase<JobDef>.GetNamed("bdew_longdistance_invite");
-        public static JobDef BreakupJob => DefDatabase<JobDef>.GetNamed("bdew_longdistance_breakup");
-        public static ThoughtDef RejectedThoughtInviter => DefDatabase<ThoughtDef>.GetNamed("bdew_longdistance_inv_rejected");
-        public static ThoughtDef RejectedThoughtTarget => DefDatabase<ThoughtDef>.GetNamed("bdew_longdistance_inv_rejected_target");
-        public static ThoughtDef RejectedThoughtInviterMood => DefDatabase<ThoughtDef>.GetNamed("bdew_longdistance_inv_rejected_mood");
-        public static ThoughtDef AcceptedThoughtInviter => DefDatabase<ThoughtDef>.GetNamed("bdew_longdistance_inv_accepted");
-        public static ThoughtDef AcceptedThoughtTarget => DefDatabase<ThoughtDef>.GetNamed("bdew_longdistance_inv_accepted_target");
-        public static ThoughtDef AcceptedThoughtInviterMood => DefDatabase<ThoughtDef>.GetNamed("bdew_longdistance_inv_accepted_mood");
-        public static HistoryEventDef RecruitedHistoryEvent => DefDatabase<HistoryEventDef>.GetNamed("bdew_longdistance_recruited");
-
         public override string SettingsCategory()
         {
             return "LongDistance.Name".Translate();

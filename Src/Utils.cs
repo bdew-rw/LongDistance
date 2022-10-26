@@ -22,15 +22,15 @@ namespace LongDistance
             {
                 if (target.needs.mood != null)
                 {
-                    target.needs.mood.thoughts.memories.RemoveMemoriesOfDefWhereOtherPawnIs(LongDistanceMod.RejectedThoughtTarget, inviter);
-                    target.needs.mood.thoughts.memories.TryGainMemory(LongDistanceMod.AcceptedThoughtTarget, inviter);
+                    target.needs.mood.thoughts.memories.RemoveMemoriesOfDefWhereOtherPawnIs(LongDistanceDefs.RejectedThoughtTarget, inviter);
+                    target.needs.mood.thoughts.memories.TryGainMemory(LongDistanceDefs.AcceptedThoughtTarget, inviter);
                 }
 
                 if (inviter.needs.mood != null)
                 {
-                    inviter.needs.mood.thoughts.memories.RemoveMemoriesOfDefWhereOtherPawnIs(LongDistanceMod.RejectedThoughtInviter, target);
-                    inviter.needs.mood.thoughts.memories.RemoveMemoriesOfDefWhereOtherPawnIs(LongDistanceMod.RejectedThoughtInviterMood, target);
-                    inviter.needs.mood.thoughts.memories.TryGainMemory(LongDistanceMod.AcceptedThoughtInviter, target);
+                    inviter.needs.mood.thoughts.memories.RemoveMemoriesOfDefWhereOtherPawnIs(LongDistanceDefs.RejectedThoughtInviter, target);
+                    inviter.needs.mood.thoughts.memories.RemoveMemoriesOfDefWhereOtherPawnIs(LongDistanceDefs.RejectedThoughtInviterMood, target);
+                    inviter.needs.mood.thoughts.memories.TryGainMemory(LongDistanceDefs.AcceptedThoughtInviter, target);
                 }
 
                 Faction oldFaction = target.Faction;
@@ -50,7 +50,7 @@ namespace LongDistance
                 }
 
                 if (relChange != 0)
-                    oldFaction.TryAffectGoodwillWith(inviter.Faction, relChange, true, true, LongDistanceMod.RecruitedHistoryEvent, inviter);
+                    oldFaction.TryAffectGoodwillWith(inviter.Faction, relChange, true, true, LongDistanceDefs.RecruitedHistoryEvent, inviter);
 
                 Letters.SendAcceptedLetter(target, inviter, inviter.Map, oldFaction, relChange);
 
@@ -60,10 +60,10 @@ namespace LongDistance
             else
             {
                 if (target.needs.mood != null)
-                    target.needs.mood.thoughts.memories.TryGainMemory(LongDistanceMod.RejectedThoughtTarget, inviter);
+                    target.needs.mood.thoughts.memories.TryGainMemory(LongDistanceDefs.RejectedThoughtTarget, inviter);
 
                 if (inviter.needs.mood != null)
-                    inviter.needs.mood.thoughts.memories.TryGainMemory(LongDistanceMod.RejectedThoughtInviter, target);
+                    inviter.needs.mood.thoughts.memories.TryGainMemory(LongDistanceDefs.RejectedThoughtInviter, target);
 
                 bool brokeUp = false;
 

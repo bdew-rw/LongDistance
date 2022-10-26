@@ -75,6 +75,7 @@
     <Compile Include="Src\JobDriver_Breakup.cs" />
     <Compile Include="Src\JobDriver_Invite.cs" />
     <Compile Include="Src\Letters.cs" />
+    <Compile Include="Src\LongDistanceDefs.cs" />
     <Compile Include="Src\LongDistanceMod.cs" />
     <Compile Include="Src\Utils.cs" />
   </ItemGroup>

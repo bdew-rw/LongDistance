@@ -62,13 +62,13 @@ namespace LongDistance
                 ) continue;
 
                 res.Add(MakeOpt("LongDistance.Invite", otherPawn, rel, __instance,
-                    () => myPawn.jobs.TryTakeOrderedJob(new Job(LongDistanceMod.InviteJob, otherPawn, __instance))
+                    () => myPawn.jobs.TryTakeOrderedJob(new Job(LongDistanceDefs.InviteJob, otherPawn, __instance))
                 ));
 
                 if (Utils.IsBreakableRelationship(rel))
                 {
                     res.Add(MakeOpt("LongDistance.Breakup", otherPawn, rel, __instance,
-                        () => myPawn.jobs.TryTakeOrderedJob(new Job(LongDistanceMod.BreakupJob, otherPawn, __instance))
+                        () => myPawn.jobs.TryTakeOrderedJob(new Job(LongDistanceDefs.BreakupJob, otherPawn, __instance))
                     ));
                 }
             }
