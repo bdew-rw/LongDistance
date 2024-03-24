@@ -49,10 +49,19 @@ namespace LongDistance
             {
                 foreach (var ent in entries)
                 {
+                    if (ent.pawn == null)
+                        Log.Error("Arrivals manager - entry has null pawn - removing");
+                    if (ent.inviter == null)
+                        Log.Error("Arrivals manager - entry has null inviter - removing");
+                    if (ent.destination == null)
+                        Log.Error("Arrivals manager - entry has null destination - removing");
+
                     ent.ticks--;
-                    if (ent.ticks <= 0) Utils.MovePawnToColony(ent.pawn, ent.inviter, ent.destination);
+
+                    if (ent.ticks <= 0 && ent.pawn != null && ent.inviter != null && ent.destination != null) 
+                        Utils.MovePawnToColony(ent.pawn, ent.inviter, ent.destination);
                 }
-                entries.RemoveAll((e) => e.ticks <= 0);
+                entries.RemoveAll((e) => e.ticks <= 0 || e.pawn == null || e.inviter == null || e.destination == null);
             }
         }
 
