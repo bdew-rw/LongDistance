@@ -1,6 +1,6 @@
-﻿using System.Text;
+﻿using RimWorld;
+using System.Text;
 using Verse;
-using RimWorld;
 
 namespace LongDistance
 {
@@ -12,7 +12,7 @@ namespace LongDistance
             sb.AppendLine("LongDistance.InviteAccepted.Text".Translate(joining.Named("PAWN"), inviter.Named("INVITER"), map.Parent.Label.Named("COLONY"))
                     .AdjustedFor(joining, "PAWN").AdjustedFor(inviter, "INVITER"));
 
-            if (faction != null && relChange>0)
+            if (faction != null && relChange > 0)
             {
                 sb.AppendLine();
                 sb.AppendLine("LongDistance.InviteAccepted.FactionPos".Translate(faction.NameColored.Named("FACTION"), relChange.Named("CHG")));
@@ -39,7 +39,7 @@ namespace LongDistance
                 "LongDistance.InviteJoined.Title".Translate(joining.Named("PAWN")),
                 "LongDistance.InviteJoined.Text".Translate(joining.Named("PAWN"), inviter.Named("INVITER"), map.Parent.Label.Named("COLONY"))
                     .AdjustedFor(joining, "PAWN").AdjustedFor(inviter, "INVITER"),
-                LetterDefOf.PositiveEvent, 
+                LetterDefOf.PositiveEvent,
                 new LookTargets(joining, inviter)
             );
         }

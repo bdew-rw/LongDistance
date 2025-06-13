@@ -71,18 +71,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Src\Alert_Enroute.cs" />
     <Compile Include="Src\ArrivalsManager.cs" />
-    <Compile Include="Src\CommsConsoleFloatMenuPatch.cs" />
+    <Compile Include="Src\CommConsoleMenuProvider.cs" />
     <Compile Include="Src\JobDriver_Breakup.cs" />
     <Compile Include="Src\JobDriver_Invite.cs" />
     <Compile Include="Src\Letters.cs" />
     <Compile Include="Src\LongDistanceDefs.cs" />
     <Compile Include="Src\LongDistanceMod.cs" />
+    <Compile Include="Src\LongDistanceSettings.cs" />
     <Compile Include="Src\Utils.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Lib.Harmony">
-      <Version>2.3.1.1</Version>
-    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

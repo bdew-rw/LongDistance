@@ -1,7 +1,7 @@
-﻿using Verse;
-using RimWorld;
+﻿using RimWorld;
 using RimWorld.Planet;
 using UnityEngine;
+using Verse;
 
 namespace LongDistance
 {
@@ -157,6 +157,15 @@ namespace LongDistance
         public static bool IsBreakableRelationship(PawnRelationDef rel)
         {
             return rel == PawnRelationDefOf.Spouse || rel == PawnRelationDefOf.Fiance || rel == PawnRelationDefOf.Lover;
+        }
+
+        public static bool CanPawnBeInvited(Pawn inviter, Pawn invited)
+        {
+            return !invited.IsColonistPlayerControlled &&
+                        invited.Faction != inviter.Faction &&
+                        invited.Map != inviter.Map &&
+                        !invited.Dead &&
+                        !invited.IsPrisoner;
         }
     }
 }

@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
-using RimWorld;
+﻿using RimWorld;
+using System.Collections.Generic;
 using Verse;
 using Verse.AI;
 
 namespace LongDistance
 {
-    public class JobDriver_Breakup: JobDriver
+    public class JobDriver_Breakup : JobDriver
     {
         private const TargetIndex PawnInd = TargetIndex.A;
         private const TargetIndex ConsoleInd = TargetIndex.B;

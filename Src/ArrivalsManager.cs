@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using RimWorld.Planet;
+using System.Collections.Generic;
 using Verse;
-using RimWorld.Planet;
 
 
 namespace LongDistance
@@ -58,7 +58,7 @@ namespace LongDistance
 
                     ent.ticks--;
 
-                    if (ent.ticks <= 0 && ent.pawn != null && ent.inviter != null && ent.destination != null) 
+                    if (ent.ticks <= 0 && ent.pawn != null && ent.inviter != null && ent.destination != null)
                         Utils.MovePawnToColony(ent.pawn, ent.inviter, ent.destination);
                 }
                 entries.RemoveAll((e) => e.ticks <= 0 || e.pawn == null || e.inviter == null || e.destination == null);
