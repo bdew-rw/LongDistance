@@ -14,6 +14,7 @@ namespace LongDistance
         public static float BreakupOpinionFactor = 0.02f;
         public static float PositiveRelationTreshold = 50f;
         public static float NegativeRelationTreshold = -50f;
+        public static bool AllowLeftBehind = false;
 
         public override void ExposeData()
         {
@@ -27,6 +28,7 @@ namespace LongDistance
             Scribe_Values.Look(ref BreakupOpinionFactor, "BreakupOpinionFactor", 0.02f);
             Scribe_Values.Look(ref PositiveRelationTreshold, "PositiveRelationTreshold", 50f);
             Scribe_Values.Look(ref NegativeRelationTreshold, "NegativeRelationTreshold", -50f);
+            Scribe_Values.Look(ref AllowLeftBehind, "AllowLeftBehind", false);
             base.ExposeData();
         }
     }

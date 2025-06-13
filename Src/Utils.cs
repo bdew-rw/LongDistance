@@ -13,7 +13,7 @@ namespace LongDistance
                 (target.relations.OpinionOf(inviter) * LongDistanceSettings.JoinOpinionFactor) +
                 (inviter.skills.GetSkill(SkillDefOf.Social).Level * LongDistanceSettings.JoinSkillFactor);
 
-            if (target.Faction != null)
+            if (target.Faction != null && target.Faction != inviter.Faction)
                 successChance += target.Faction.GoodwillWith(inviter.Faction) * LongDistanceSettings.JoinFactionFactor;
 
             successChance = Mathf.Clamp01(successChance);
@@ -33,7 +33,7 @@ namespace LongDistance
                     inviter.needs.mood.thoughts.memories.TryGainMemory(LongDistanceDefs.AcceptedThoughtInviter, target);
                 }
 
-                Faction oldFaction = target.Faction;
+                Faction oldFaction = target.Faction == inviter.Faction ? null : target.Faction;
                 int relChange = 0;
 
                 target.SetFaction(inviter.Faction, inviter);
@@ -47,14 +47,15 @@ namespace LongDistance
                         relChange = -Rand.RangeInclusive(2, 4) * 5;
                     else
                         relChange = Rand.RangeInclusive(-3, 3) * 5;
+
+                    if (relChange != 0)
+                        oldFaction.TryAffectGoodwillWith(inviter.Faction, relChange, true, true, LongDistanceDefs.RecruitedHistoryEvent, inviter);
                 }
 
-                if (relChange != 0)
-                    oldFaction.TryAffectGoodwillWith(inviter.Faction, relChange, true, true, LongDistanceDefs.RecruitedHistoryEvent, inviter);
 
                 Letters.SendAcceptedLetter(target, inviter, inviter.Map, oldFaction, relChange);
 
-                Find.World.GetComponent<ArrivalsManager>().Schedule(target, inviter, inviter.Map,
+                ArrivalsManager.Current.Schedule(target, inviter, inviter.Map,
                     Mathf.FloorToInt(Rand.Range(LongDistanceSettings.MinDaysToJoin, LongDistanceSettings.MaxDaysToJoin) * GenDate.TicksPerDay));
             }
             else
@@ -146,6 +147,7 @@ namespace LongDistance
                 if (recipient.needs.mood != null)
                     recipient.needs.mood.thoughts.memories.TryGainMemory(ThoughtDefOf.BrokeUpWithMe, initiator);
             }
+            
             TaleRecorder.RecordTale(TaleDefOf.Breakup, initiator, recipient);
         }
 
@@ -162,10 +164,11 @@ namespace LongDistance
         public static bool CanPawnBeInvited(Pawn inviter, Pawn invited)
         {
             return !invited.IsColonistPlayerControlled &&
-                        invited.Faction != inviter.Faction &&
                         invited.Map != inviter.Map &&
                         !invited.Dead &&
-                        !invited.IsPrisoner;
+                        !invited.IsPrisoner &&
+                        !invited.IsSlave &&
+                        !ArrivalsManager.Current.IsScheduled(invited);
         }
     }
 }

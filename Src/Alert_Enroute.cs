@@ -6,8 +6,6 @@ namespace LongDistance.Src
 {
     class Alert_Enroute : Alert
     {
-        private ArrivalsManager Manager => Find.World.GetComponent<ArrivalsManager>();
-
         public override string GetLabel()
         {
             return "LongDistance.Enroute.Title".Translate();
@@ -17,7 +15,7 @@ namespace LongDistance.Src
         {
             StringBuilder sb = new StringBuilder();
 
-            foreach (var row in Manager.entries)
+            foreach (var row in ArrivalsManager.Current.Scheduled)
             {
                 string rel;
                 if (row.pawn.relations == null)
@@ -48,7 +46,7 @@ namespace LongDistance.Src
 
         public override AlertReport GetReport()
         {
-            return Manager.entries.Count > 0 ? AlertReport.Active : AlertReport.Inactive;
+            return ArrivalsManager.Current.HasScheduled ? AlertReport.Active : AlertReport.Inactive;
         }
     }
 }

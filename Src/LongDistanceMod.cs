@@ -36,6 +36,10 @@ namespace LongDistance
             AddSettingsNumberLine(listing, "PositiveRelationTreshold", ref LongDistanceSettings.PositiveRelationTreshold, -100f, 100f, "N0");
             AddSettingsNumberLine(listing, "NegativeRelationTreshold", ref LongDistanceSettings.NegativeRelationTreshold, -100f, 100f, "N0");
 
+            listing.Gap(2f);
+
+            listing.CheckboxLabeled("LongDistance.Settings.AllowLeftBehind".Translate(), ref LongDistanceSettings.AllowLeftBehind, "LongDistance.Settings.AllowLeftBehind.Desc".Translate());
+
             listing.End();
 
             base.DoSettingsWindowContents(inRect);

@@ -55,4 +55,7 @@
 
     <LongDistance.Settings.NegativeRelationTreshold.Name>Negative relations treshold</LongDistance.Settings.NegativeRelationTreshold.Name>
     <LongDistance.Settings.NegativeRelationTreshold.Desc>Factions below this relations level will always react negatively to their members deciding to join</LongDistance.Settings.NegativeRelationTreshold.Desc>
+
+    <LongDistance.Settings.AllowLeftBehind>Allow inviting "Left Behind" colonists</LongDistance.Settings.AllowLeftBehind>
+    <LongDistance.Settings.AllowLeftBehind.Desc>Allow inviting additional colonists that were generated on game start but not selected as starting pawns if they have a relationship</LongDistance.Settings.AllowLeftBehind.Desc>
 </LanguageData>
